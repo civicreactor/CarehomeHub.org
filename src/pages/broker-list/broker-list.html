@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Clients</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-list>
+        <button ion-item *ngFor="let broker of brokers" (click)="openBrokerDetail(broker)">
+            <h2>{{broker.name}}</h2>
+            <p>{{broker.providerId}}</p>
+        </button>
+    </ion-list>
+</ion-content>

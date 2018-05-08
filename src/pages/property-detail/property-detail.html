@@ -1,0 +1,95 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Carehome: {{property.Location_Name}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-card *ngIf="property.Location_ID">
+        <img src="{{property.picture}}"/>
+        <ion-card-content>
+
+            <h2>{{property.Location_Name}} - {{property.registrationStatus}} sinced {{property.Location_HSCA_start_date}}</h2>
+            <p>{{property.Location_Street_Address}}, {{property.Location_City}} ∙ {{ property.Location_Region }}</p>
+            <ion-thumbnail item-right>
+                <img src="./assets/img/care_home.png"/>
+            </ion-thumbnail>
+        </ion-card-content>
+        <ion-list>
+
+            <ion-item>
+                <ion-icon item-left name="speedomitor"></ion-icon>
+                <h3>Bedrooms</h3>
+                <ion-note item-right>{{property.Care_homes_beds}}</ion-note>
+            </ion-item>
+            <ion-item>
+                <ion-icon item-left name="leaf"></ion-icon>
+                <h3>Regulated Activities:</h3><br>
+                <ion-note item-right>{{property.Location_Inspection_Directorate}}</ion-note>
+            </ion-item>
+            <ion-item>
+                <ion-note item-right>{{property.Location_Primary_Inspection_Category}}</ion-note>
+            </ion-item>
+            <!--<ion-item>-->
+                <!--<ion-icon item-left name="leaf"></ion-icon>-->
+                <!--<h3>Specialisms</h3>-->
+                <!--<ion-list *ngFor= "let item of specialisms;">-->
+                       <!--<p>{{item["name"]}}</p>-->
+                <!--</ion-list>-->
+            <!--</ion-item>-->
+            <!--<ion-item>-->
+                <!--<ion-icon item-left name="speedometer"></ion-icon>-->
+                <!--<h3><b>Current Rating:-</b> Overall : {{property.currentRatings.overall["rating"]}}:</h3>-->
+                <!--<ion-grid>-->
+                    <!--<ion-row>-->
+                        <!--<div class="col">{{property.currentRatings.overall.keyQuestionRatings[0]["name"]}}</div>-->
+                        <!--<div class="col">{{property.currentRatings.overall.keyQuestionRatings[0]["rating"]}}</div>-->
+                    <!--</ion-row>-->
+                    <!--<ion-row>-->
+                        <!--<div class="col">{{property.currentRatings.overall.keyQuestionRatings[1]["name"]}}</div>-->
+                        <!--<div class="col">{{property.currentRatings.overall.keyQuestionRatings[1]["rating"]}}</div>-->
+                    <!--</ion-row>-->
+                    <!--<ion-row>-->
+                        <!--<div class="col">{{property.currentRatings.overall.keyQuestionRatings[2]["name"]}}</div>-->
+                        <!--<div class="col">{{property.currentRatings.overall.keyQuestionRatings[2]["rating"]}}</div>-->
+
+                    <!--</ion-row>-->
+                    <!--<ion-row>-->
+                        <!--<div class="col">{{property.currentRatings.overall.keyQuestionRatings[3]["name"]}}</div>-->
+                        <!--<div class="col">{{property.currentRatings.overall.keyQuestionRatings[3]["rating"]}}</div>-->
+
+                    <!--</ion-row>-->
+                    <!--<ion-row>-->
+                        <!--<div class="col">{{property.currentRatings.overall.keyQuestionRatings[4]["name"]}}</div>-->
+                        <!--<div class="col">{{property.currentRatings.overall.keyQuestionRatings[4]["rating"]}}</div>-->
+                    <!--</ion-row>-->
+                <!--</ion-grid>-->
+<!--</ion-item>-->
+            <!--<button ion-item (click)="openBrokerDetail(property.broker)">-->
+                <!--<ion-avatar item-left>-->
+                    <!--<img src="{{property.broker.picture}}"/>-->
+                <!--</ion-avatar>-->
+                <!--<h2>{{property.broker.name}}</h2>-->
+                <!--<p>{{property.broker.title}}</p>-->
+            <!--</button>-->
+        </ion-list>
+
+        <ion-item>
+            <ion-icon item-left name="leaf"></ion-icon>
+            <h3>Management Leads:</h3>
+                <p>Registered_manager:  {{property["Registered_manager"]}}</p>
+        </ion-item>
+
+        <ion-item>
+            <button ion-button icon-left (click)="favorite(property)" clear item-left>
+                <ion-icon name="star"></ion-icon>
+                Favorite
+            </button>
+            <button ion-button icon-left (click)="share(property)" clear item-right>
+                <ion-icon name="share"></ion-icon>
+                Share
+            </button>
+        </ion-item>
+
+    </ion-card>
+</ion-content>

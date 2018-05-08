@@ -1,0 +1,58 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{broker.name}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="broker">
+
+    <ion-card>
+
+        <!--<ion-card-content>-->
+            <!--<img src="{{broker.picture}}"/>-->
+            <!--<h2>{{broker.name}}</h2>-->
+            <!--<h3>{{broker.title}}</h3>-->
+        <!--</ion-card-content>-->
+
+        <ion-list>
+            <ion-item>
+                <ion-icon name="home" item-left></ion-icon>
+                <p>Address: </p>
+                <h2>{{broker.postalAddressLine1}}<br>postalAddressTownCity
+                    {{broker.postalAddressTownCity}}<br>
+                    {{broker.region}}<br>
+                    {{broker.postalCode}}<br>
+                </h2>
+            </ion-item>
+            <a href="tel:{{broker.Phone__c}}" ion-item>
+                <ion-icon name="call" item-left></ion-icon>
+                <p>Call Office</p>
+                <h2>{{broker.mainPhoneNumber}}</h2>
+            </a>
+            <ion-item>
+                <ion-icon name="call" item-left></ion-icon>
+                <p>Website: </p>
+                <h2>{{broker.website}}</h2>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="text" item-left></ion-icon>
+                <p>Text</p>
+                <h2>{{broker.mobilePhone}}</h2>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="mail" item-left></ion-icon>
+                <p>Email</p>
+                <h2>{{broker.email}}</h2>
+            </ion-item>
+            <ion-item >
+                <ion-icon item-left name="leaf"></ion-icon>
+                <h3>Regulated Activities:</h3>
+                <ion-list *ngFor= "let item of RegActivity;">
+                    <p class="item-text-wrap">{{item["code"]}}:<br>  {{item["name"]}}</p>
+                </ion-list>
+            </ion-item>
+        </ion-list>
+
+    </ion-card>
+
+</ion-content>
